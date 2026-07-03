@@ -1,0 +1,36 @@
+/* Tokens del design system Rolo — espejo de las colecciones de Figma
+   (Color con modos Oscuro/Claro · Espaciado · Radio) */
+:root {
+  --color-fondo-base: #0E1F1C;
+  --color-fondo-superficie: #1B3A34;
+  --color-fondo-superficie-2: #244A43;
+  --color-texto-primario: #F4F2EC;
+  --color-texto-secundario: #7FA89F;
+  --color-texto-inverso: #0E1F1C;
+  --color-acento-grado: #E0A82E;
+  --color-estado-alerta: #C4452F;
+  --color-borde-sutil: #7FA89F;
+
+  --cinturon-blanco: #F4F2EC;
+  --cinturon-azul: #2D6CB5;
+  --cinturon-morado: #6B3FA0;
+  --cinturon-cafe: #6E4A2E;
+  --cinturon-negro: #141414;
+
+  --espaciado-xs: 4px;  --espaciado-sm: 8px;  --espaciado-md: 12px;
+  --espaciado-lg: 16px; --espaciado-xl: 20px; --espaciado-2xl: 28px;
+
+  --radio-sm: 8px; --radio-md: 12px; --radio-lg: 16px; --radio-completo: 999px;
+
+  --tipo-display: 'Archivo', sans-serif;
+  --tipo-cuerpo: 'Inter', sans-serif;
+  --tipo-dato: 'JetBrains Mono', monospace;
+}
+[data-theme='claro'] {
+  --color-fondo-base: #F4F2EC;
+  --color-fondo-superficie: #FFFFFF;
+  --color-fondo-superficie-2: #E7E3D8;
+  --color-texto-primario: #0E1F1C;
+  --color-texto-secundario: #3E6B61;
+  --color-borde-sutil: #3E6B61;
+}
