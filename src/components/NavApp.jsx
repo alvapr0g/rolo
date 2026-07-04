@@ -1,43 +1,41 @@
 // Navegación: sidebar en web (≥1024px) y BottomNav en app — espejo del componente Figma "BottomNav"
-const ITEMS = [
-  { id: 'inicio', etiqueta: 'Inicio' },
-  { id: 'biblioteca', etiqueta: 'Biblioteca' },
-  { id: 'progreso', etiqueta: 'Progreso' },
-]
+const raiz = { inicio: 'inicio', biblioteca: 'biblioteca', lista: 'biblioteca', tecnica: 'biblioteca', flujo: 'biblioteca', progreso: 'progreso', checklist: 'progreso', resumen: 'inicio', academias: 'academias', perfil: 'perfil', academia: 'perfil' }
 
-export function Sidebar({ vista, onNavegar, onRegistrar, tema, onTema }) {
+export function Sidebar({ ruta, irA, onRegistrar }) {
+  const activo = raiz[ruta.vista]
+  const item = (id, etiqueta, onClick) => (
+    <button className="nav-item" aria-current={activo === id ? 'page' : undefined} onClick={onClick}>
+      <span className="icono" />{etiqueta}
+    </button>
+  )
   return (
     <nav className="sidebar" aria-label="Navegación principal">
       <div className="logo">ROLO</div>
-      {ITEMS.slice(0, 2).map((it) => (
-        <button key={it.id} className="nav-item" aria-current={vista === it.id ? 'page' : undefined} onClick={() => onNavegar(it.id)}>
-          <span className="icono" />{it.etiqueta}
-        </button>
-      ))}
+      {item('inicio', 'Inicio', () => irA({ vista: 'inicio' }))}
+      {item('biblioteca', 'Biblioteca', () => irA({ vista: 'biblioteca' }))}
       <button className="nav-item" onClick={onRegistrar}><span className="icono" />Registrar sesión</button>
-      <button className="nav-item" aria-current={vista === 'progreso' ? 'page' : undefined} onClick={() => onNavegar('progreso')}>
-        <span className="icono" />Progreso
-      </button>
+      {item('academias', 'Academias', () => irA({ vista: 'academias' }))}
+      {item('progreso', 'Progreso', () => irA({ vista: 'progreso' }))}
       <div className="empuje" />
-      <button className="nav-item" onClick={onTema}><span className="icono" />{tema === 'oscuro' ? 'Modo claro' : 'Modo oscuro'}</button>
+      {item('perfil', 'Perfil', () => irA({ vista: 'perfil' }))}
     </nav>
   )
 }
 
-export function BottomNav({ vista, onNavegar, onRegistrar, onTema }) {
+export function BottomNav({ ruta, irA, onRegistrar }) {
+  const activo = raiz[ruta.vista]
+  const tab = (id, etiqueta, onClick) => (
+    <button className="tab" aria-current={activo === id ? 'page' : undefined} onClick={onClick}>
+      <span className="icono" />{etiqueta}
+    </button>
+  )
   return (
     <nav className="bottomnav" aria-label="Navegación inferior">
-      <button className="tab" aria-current={vista === 'inicio' ? 'page' : undefined} onClick={() => onNavegar('inicio')}>
-        <span className="icono" />Inicio
-      </button>
-      <button className="tab" aria-current={vista === 'biblioteca' ? 'page' : undefined} onClick={() => onNavegar('biblioteca')}>
-        <span className="icono" />Biblioteca
-      </button>
+      {tab('inicio', 'Inicio', () => irA({ vista: 'inicio' }))}
+      {tab('biblioteca', 'Biblioteca', () => irA({ vista: 'biblioteca' }))}
       <button className="tab-registrar" onClick={onRegistrar} aria-label="Registrar sesión">+</button>
-      <button className="tab" aria-current={vista === 'progreso' ? 'page' : undefined} onClick={() => onNavegar('progreso')}>
-        <span className="icono" />Progreso
-      </button>
-      <button className="tab" onClick={onTema}><span className="icono" />Tema</button>
+      {tab('progreso', 'Progreso', () => irA({ vista: 'progreso' }))}
+      {tab('perfil', 'Perfil', () => irA({ vista: 'perfil' }))}
     </nav>
   )
 }

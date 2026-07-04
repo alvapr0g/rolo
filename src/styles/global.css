@@ -125,3 +125,75 @@ input { font-family: inherit; }
 .toast { position: fixed; left: 50%; bottom: 104px; transform: translate(-50%, 20px); background: var(--color-acento-grado); color: var(--color-texto-inverso); font-weight: 600; font-size: 13px; padding: 10px 18px; border-radius: var(--radio-completo); opacity: 0; transition: all .25s ease; z-index: 40; pointer-events: none; }
 .toast.visible { opacity: 1; transform: translate(-50%, 0); }
 @media (min-width: 1024px) { .toast { bottom: 32px; } }
+
+/* ============ Biblioteca: lista y detalle ============ */
+.fila-tec { display: flex; align-items: center; justify-content: space-between; gap: 8px; background: var(--color-fondo-superficie); border-radius: 14px; padding: 14px 16px; width: 100%; text-align: left; transition: background .15s ease; }
+.fila-tec:hover { background: var(--color-fondo-superficie-2); }
+.fila-tec b { font-weight: 600; font-size: 15px; }
+.fila-tec .der { display: flex; align-items: center; gap: 10px; color: var(--color-texto-secundario); }
+.miga { display: flex; align-items: center; gap: 10px; }
+.miga button { color: var(--color-texto-secundario); font-size: 18px; }
+.video-ph { width: 100%; aspect-ratio: 16/9; background: var(--color-fondo-superficie-2); border-radius: 14px; display: grid; place-items: center; }
+.video-ph i { width: 48px; height: 48px; border-radius: 50%; background: var(--color-acento-grado); display: grid; place-items: center; color: var(--color-texto-inverso); font-style: normal; font-size: 18px; }
+.paso-dots { display: flex; gap: 8px; }
+.paso-dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--color-fondo-superficie-2); }
+.paso-dots i.activo { background: var(--color-acento-grado); }
+.dos-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.acciones { display: flex; gap: 10px; }
+.tip { background: var(--color-fondo-superficie-2); border-radius: 12px; padding: 12px 14px; font-size: 13px; }
+
+/* ============ Grafo de flujo ============ */
+.grafo-svg { width: 100%; background: var(--color-fondo-superficie); border-radius: 14px; touch-action: none; }
+.grafo-nodo { cursor: pointer; }
+.grafo-nodo rect { fill: var(--color-fondo-superficie-2); stroke: var(--color-borde-sutil); stroke-width: 1; rx: 18; }
+.grafo-nodo.activo rect { fill: var(--color-acento-grado); stroke: none; }
+.grafo-nodo text { fill: var(--color-texto-primario); font: 600 12px var(--tipo-cuerpo); }
+.grafo-nodo.activo text { fill: var(--color-texto-inverso); }
+.grafo-arista { stroke: var(--color-texto-secundario); stroke-width: 2; fill: none; }
+.grafo-arista.contra { stroke-dasharray: 4 5; }
+.leyenda { display: flex; gap: 16px; font-size: 12px; color: var(--color-texto-secundario); }
+
+/* ============ Checklist ============ */
+.check-fila { display: flex; align-items: center; gap: 10px; background: var(--color-fondo-superficie); border-radius: 12px; padding: 12px 14px; width: 100%; text-align: left; }
+.check-dot { width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0; border: 1.4px solid var(--color-borde-sutil); position: relative; overflow: hidden; }
+.check-dot.medio { border-color: var(--color-acento-grado); }
+.check-dot.medio::after { content: ""; position: absolute; inset: 0; width: 50%; background: var(--color-acento-grado); }
+.check-dot.full { background: var(--color-acento-grado); border-color: var(--color-acento-grado); }
+.check-fila b { flex: 1; font-weight: 600; font-size: 14px; }
+.check-fila em { font-style: normal; font-size: 11px; color: var(--color-texto-secundario); }
+.check-fila em.ok { color: var(--color-acento-grado); }
+.seccion-head { display: flex; justify-content: space-between; align-items: baseline; margin-top: 6px; }
+
+/* ============ Academias / Globo ============ */
+.academias-layout { display: flex; flex-direction: column; gap: 14px; }
+.globo-wrap { position: relative; display: grid; place-items: center; }
+.globo-svg { touch-action: none; cursor: grab; max-width: 100%; }
+.globo-svg:active { cursor: grabbing; }
+.globo-hint { position: absolute; top: 0; right: 0; background: var(--color-fondo-superficie-2); border-radius: 10px; padding: 8px 12px; display: flex; flex-direction: column; gap: 2px; }
+.globo-hint small { font-family: var(--tipo-dato); font-size: 9px; letter-spacing: 1px; color: var(--color-texto-secundario); }
+.globo-hint span { font-size: 11px; font-weight: 500; }
+.cta-zona { display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--color-acento-grado); color: var(--color-texto-inverso); font-weight: 600; font-size: 14px; padding: 14px 16px; border-radius: var(--radio-completo); width: 100%; }
+.acad-card { display: flex; flex-direction: column; gap: 6px; background: var(--color-fondo-superficie); border-radius: 14px; padding: 12px 14px; width: 100%; text-align: left; border: 1.4px solid transparent; }
+.acad-card.activa { border-color: var(--color-acento-grado); }
+.acad-card .fila { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.acad-card b { font-weight: 600; font-size: 15px; }
+.acad-card .dist { font-family: var(--tipo-dato); font-size: 12px; color: var(--color-acento-grado); }
+.acad-card small { font-size: 12px; color: var(--color-texto-secundario); }
+@media (min-width: 1024px) {
+  .academias-layout { display: grid; grid-template-columns: 400px 1fr; gap: 24px; align-items: start; }
+  .academias-panel { display: flex; flex-direction: column; gap: 14px; }
+}
+
+/* ============ Modo Academia ============ */
+.estudiante { display: flex; flex-direction: column; gap: 8px; background: var(--color-fondo-superficie); border-radius: 14px; padding: 14px 16px; }
+.estudiante .fila { display: flex; align-items: center; gap: 10px; }
+.cint-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+.mini-barra { flex: 1; max-width: 70px; height: 8px; border-radius: 99px; background: var(--color-fondo-superficie-2); overflow: hidden; }
+.mini-barra span { display: block; height: 100%; background: var(--color-acento-grado); }
+.alerta-txt { color: var(--color-estado-alerta); font-size: 12px; font-weight: 500; }
+
+/* ============ Perfil ============ */
+.perfil-head { display: flex; align-items: center; gap: 14px; }
+.perfil-head .avatar { width: 56px; height: 56px; }
+.item-lista { display: flex; align-items: center; justify-content: space-between; background: var(--color-fondo-superficie); border-radius: 12px; padding: 14px 16px; width: 100%; text-align: left; font-weight: 500; font-size: 14px; }
+.item-lista:hover { background: var(--color-fondo-superficie-2); }

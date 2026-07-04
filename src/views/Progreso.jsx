@@ -2,7 +2,7 @@ import Tarjeta from '../components/Tarjeta'
 import Cinturon from '../components/Cinturon'
 import AnilloProgreso from '../components/AnilloProgreso'
 
-export default function Progreso() {
+export default function Progreso({ irA }) {
   return (
     <section aria-label="Progreso de cinturón">
       <div className="encabezado"><h1>Progreso</h1><div className="avatar" aria-hidden="true" /></div>
@@ -18,7 +18,7 @@ export default function Progreso() {
             <AnilloProgreso valor={64} etiqueta="Progreso hacia cinturón morado" />
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               <div className="requisito ok"><b>✓</b> 120 sesiones registradas (128/120)</div>
-              <div className="requisito ok"><b>◐</b> Checklist técnico · 18 de 28</div>
+              <button className="requisito ok" style={{ background: 'none' }} onClick={() => irA({ vista: 'checklist' })}><b>◐</b> Checklist técnico · 18 de 28 ›</button>
               <div className="requisito pend"><b>○</b> Validación de instructor</div>
             </div>
           </div>
